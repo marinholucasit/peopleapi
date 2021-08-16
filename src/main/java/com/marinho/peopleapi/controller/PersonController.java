@@ -2,6 +2,7 @@ package com.marinho.peopleapi.controller;
 
 import com.marinho.peopleapi.dto.request.PersonDTO;
 import com.marinho.peopleapi.entity.Person;
+import com.marinho.peopleapi.exception.PersonNotFoundException.PersonNotFoundException;
 import com.marinho.peopleapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,5 +33,10 @@ public class PersonController {
     @ResponseStatus(HttpStatus.OK)
     public List<PersonDTO> listAll() {
         return personService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
+        return personService.findById(id);
     }
 }
