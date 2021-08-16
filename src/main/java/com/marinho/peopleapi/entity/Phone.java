@@ -19,5 +19,5 @@ public class Phone {
     @Column(nullable = false)
     private PhoneType type;
     @Column(nullable = false)
-    private String nome;
+    private String number;
 }
